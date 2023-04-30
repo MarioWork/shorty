@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "functions-framework --target=helloWorld"
   },
-  "author": "",
+  "author": "Mario Vieira",
   "license": "MIT",
   "devDependencies": {
     "@google-cloud/functions-framework": "^3.2.0"
