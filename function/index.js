@@ -1,3 +1,2 @@
-exports.helloWorld = (req, res) => {
-    res.send('Hello World!');
-};
+exports.retrieve = require('./src/retrieve');
+exports.write = require('./src/write');
