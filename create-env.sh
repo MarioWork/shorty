@@ -1,5 +1,6 @@
 #Set an env variable with project id
 PROJECT_ID=YOUR_PROJECT_ID
+LOCATION=YOUR_LOCATION
 
 ####### SERVIES ########
 
@@ -47,3 +48,6 @@ gcloud iam service-accounts create Datastore Write Function \
 gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member="serviceAccount:datastore-write-function@$PROJECT_ID.iam.gserviceaccount.com" \
     --role="projects/$PROJECT_ID/roles/datastore_entities_write_only"
+
+
+gcloud firestore databases create --location=$LOCATION --type=datastore-mode
