@@ -1,3 +1,6 @@
+#Login with your user for local development
+gcloud auth application-default login
+
 #Set an env variable with project id
 PROJECT_ID=YOUR_PROJECT_ID
 LOCATION=YOUR_LOCATION
