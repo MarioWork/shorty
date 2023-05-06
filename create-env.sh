@@ -1,8 +1,13 @@
 #Set an env variable with project id
 PROJECT_ID=YOUR_PROJECT_ID
 
+####### SERVIES ########
+
 #Enable IAM service API
 gcloud services enable iam.googleapis.com
+
+
+####### ROLES ########
 
 #Create a role for write only in the datastore entities
 gcloud iam roles create datastore_entities_write_only \
@@ -19,6 +24,9 @@ gcloud iam roles create datastore_entities_read_only \
     --description=Datastore Allow to read only datastore entities \
     --permissions="datastore.entities.get" \
     --stage=GA
+
+
+####### SERVICE ACCOUNTS ########
 
 #Create a service account for Datastore read Cloud Function
 gcloud iam service-accounts create Datastore Read Function \
