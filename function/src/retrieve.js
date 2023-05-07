@@ -5,8 +5,8 @@ const datastore = new Datastore({
 });
 
 module.exports = async (req, res) => {
-    const query = datastore.createQuery('Test');
-
-    const [test] = await datastore.runQuery(query);
-    res.send(test);
+    const id = req.params.id;
+    const query = datastore.createQuery('link').filter('id', '=', id);
+    const [[{ link }]] = await datastore.runQuery(query);
+    res.redirect(link);
 };
