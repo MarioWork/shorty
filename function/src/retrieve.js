@@ -6,7 +6,12 @@ const datastore = new Datastore({
 
 module.exports = async (req, res) => {
     const id = req.params.id;
+
     const query = datastore.createQuery('link').filter('id', '=', id);
-    const [[{ link }]] = await datastore.runQuery(query);
-    res.redirect(link);
+
+    const [[value]] = await datastore.runQuery(query);
+
+    if (!value?.link) res.status(404).send();
+
+    res.redirect(value.link);
 };
