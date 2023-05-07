@@ -4,7 +4,7 @@ const write = require('./src/write');
 
 //For local development purposes
 const app = express();
-app.use('/retrieve', retrieve);
+app.use('/retrieve/:id', retrieve);
 app.use('/write', write);
 
 module.exports = {
