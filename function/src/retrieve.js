@@ -13,5 +13,5 @@ module.exports = async (req, res) => {
 
     if (!value?.link) res.status(404).send();
 
-    res.redirect(value.link);
+    res.redirect(301, value.link);
 };
