@@ -7,7 +7,7 @@ const datastore = new Datastore({
 
 module.exports = async (req, res) => {
     const { link } = req.body;
-
+    //TODO: VALIDATE LINK
     const id = crypto.randomBytes(8).toString('hex');
 
     const key = datastore.key('link');
