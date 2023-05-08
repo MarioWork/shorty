@@ -53,4 +53,6 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
     --role="projects/$PROJECT_ID/roles/datastore_entities_write_only"
 
 
+####### DATASTORE ########
+
 gcloud firestore databases create --location=$LOCATION --type=datastore-mode
