@@ -1,18 +1,22 @@
 const { Datastore } = require('@google-cloud/datastore');
 const crypto = require('crypto');
 
+const urlRegex = /^(https?){1}:\/\/[^\s/$.?#].[^\s]*$/;
+
 const datastore = new Datastore({
     projectId: process.env.PROJECT_ID
 });
 
 module.exports = async (req, res) => {
-    const { link } = req.body;
-    //TODO: VALIDATE LINK
+    const { url } = req.body;
+
+    if (!isValidUrl(url)) res.status(403).send('Invalid URL format');
+
     const id = crypto.randomBytes(8).toString('hex');
 
-    const key = datastore.key('link');
+    const key = datastore.key('url');
 
-    const data = { id, link };
+    const data = { id, url };
 
     const entity = { key, data };
 
@@ -20,3 +24,5 @@ module.exports = async (req, res) => {
 
     res.send(data);
 };
+
+const isValidUrl = url => urlRegex.test(url);
