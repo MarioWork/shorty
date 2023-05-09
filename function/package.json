@@ -4,7 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon --exec 'env-cmd functions-framework --target=index'"
+        "dev": "nodemon --exec 'env-cmd functions-framework --target=index --source=dev-server'",
+        "retrieve": "nodemon --exec 'env-cmd functions-framework --target=retrieve'",
+        "write": "nodemon --exec 'env-cmd functions-framework --target=write'"
     },
     "author": "Mario Vieira",
     "license": "MIT",
