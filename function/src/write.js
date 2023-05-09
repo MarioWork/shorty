@@ -7,10 +7,13 @@ const datastore = new Datastore({
     projectId: process.env.PROJECT_ID
 });
 
-module.exports = async (req, res) => {
+module.exports = async (req, res, next) => {
     const { url } = req.body;
 
-    if (!isValidUrl(url)) res.status(403).send('Invalid URL format');
+    if (!isValidUrl(url)) {
+        res.status(403).send('Invalid URL format');
+        return next();
+    }
 
     const id = crypto.randomBytes(8).toString('hex');
 
