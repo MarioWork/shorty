@@ -5,7 +5,7 @@ const datastore = new Datastore({
 });
 
 module.exports = async (req, res, next) => {
-    const id = req.baseUrl.split('/')[1];
+    const id = req.query?.id;
 
     if (!id) {
         res.status(404);
