@@ -1,9 +1,12 @@
 #Login with your user for local development
 gcloud auth application-default login
 
-#Set an env variable with project id
-PROJECT_ID=YOUR_PROJECT_ID
-LOCATION=YOUR_LOCATION
+####### If no project is set apply the command bellow #######
+#gcloud config set project YOUR_PROJECT_ID
+
+#Set an env variable
+export PROJECT_ID=$(gcloud config list --format 'value(core.project)') #Curernt project id
+export LOCATION=YOUR_LOCATION
 
 ####### SERVIES ########
 
