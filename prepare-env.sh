@@ -8,10 +8,8 @@ gcloud auth application-default login
 export PROJECT_ID=$(gcloud config list --format 'value(core.project)') #Curernt project id
 export LOCATION=YOUR_LOCATION
 
-####### SERVIES ########
-
-#Enable IAM service API
-gcloud services enable iam.googleapis.com
+####### SERVICES ########
+gcloud services enable iam.googleapis.com datastore.googleapis.com firestore.googleapis.com
 
 
 ####### ROLES ########
@@ -59,3 +57,5 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 ####### DATASTORE ########
 
 gcloud firestore databases create --location=$LOCATION --type=datastore-mode
+
+
