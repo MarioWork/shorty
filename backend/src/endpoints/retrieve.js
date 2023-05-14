@@ -1,5 +1,5 @@
-const verifyRequest = require('./utils/req-verification');
-const { retrieveDataById } = require('./utils/db');
+const verifyRequest = require('../utils/req-verification');
+const { retrieveDataById } = require('../utils/db');
 
 module.exports = async (req, res) => {
     if (!verifyRequest(req)) return res.status(403).send({ message: 'Unauthorized' });

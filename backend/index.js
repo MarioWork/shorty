@@ -1,4 +1,4 @@
 module.exports = {
-    retrieve: require('./src/retrieve'),
-    write: require('./src/write')
+    retrieve: require('./src/endpoints/retrieve'),
+    write: require('./src/endpoints/write')
 };

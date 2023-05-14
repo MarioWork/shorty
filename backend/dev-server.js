@@ -1,6 +1,6 @@
 const express = require('express');
-const retrieve = require('./src/retrieve');
-const write = require('./src/write');
+const retrieve = require('./src/endpoints/retrieve');
+const write = require('./src/endpoints/write');
 
 //For local development purposes
 const app = express();
