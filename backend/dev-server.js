@@ -4,8 +4,8 @@ const write = require('./src/endpoints/write');
 
 //For local development purposes
 const app = express();
-app.use('/', retrieve);
 app.use('/w', write);
+app.use('/', retrieve);
 
 module.exports = {
     index: app
