@@ -1,13 +1,10 @@
 const { writeData } = require('../utils/db');
-
-const urlRegex = /^(https?){1}:\/\/[^\s/$.?#].[^\s]*$/;
+const isValidUrl = require('../utils/verify-url');
 
 module.exports = async (req, res) => {
     const { url } = req.body;
 
-    if (!isValidUrl(url)) {
-        return res.status(403).send('Invalid URL format');
-    }
+    if (!isValidUrl(url)) return res.status(403).send('Invalid URL format');
 
     try {
         const data = await writeData({ url });
@@ -16,5 +13,3 @@ module.exports = async (req, res) => {
         return res.status(404);
     }
 };
-
-const isValidUrl = url => urlRegex.test(url);
