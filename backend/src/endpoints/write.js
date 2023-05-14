@@ -12,7 +12,10 @@ module.exports = async (req, res) => {
 
     const [error, data] = await to(writeData({ url }));
 
-    if (error) return res.status(500).send();
+    if (error) {
+        res.status(500).send();
+        throw error;
+    }
 
     return res.send(data);
 };
