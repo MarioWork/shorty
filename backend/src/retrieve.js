@@ -1,25 +1,16 @@
-const { Datastore } = require('@google-cloud/datastore');
+const verifyRequest = require('./utils/req-verification');
+const { retrieveDataById } = require('./utils/db');
 
-const datastore = new Datastore({
-    projectId: process.env.PROJECT_ID
-});
+module.exports = async (req, res) => {
+    if (!verifyRequest(req)) return res.status(403).send({ message: 'Unauthorized' });
 
-module.exports = async (req, res, next) => {
     const id = req.query?.id;
 
-    if (!id) {
-        res.status(404);
-        return next();
-    }
+    if (!id) return res.status(404).send();
 
-    const query = datastore.createQuery('url').filter('id', '=', id);
+    const data = await retrieveDataById(id);
 
-    const [[value]] = await datastore.runQuery(query);
+    if (!data?.url) return res.status(404).send();
 
-    if (!value?.url) {
-        res.status(404).send();
-        return next();
-    }
-
-    res.redirect(301, value.url);
+    res.send({ id: data.id, url: data.url });
 };
