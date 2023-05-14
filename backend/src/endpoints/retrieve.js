@@ -12,5 +12,5 @@ module.exports = async (req, res) => {
 
     if (!data?.url) return res.status(404).send();
 
-    res.send({ id: data.id, url: data.url });
+    return res.send({ id: data.id, url: data.url });
 };
