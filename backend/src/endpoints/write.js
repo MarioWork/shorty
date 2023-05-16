@@ -5,7 +5,7 @@ const httpVerbs = require('../enums/http-verbs');
 const verifyRequest = require('../utils/req-verification');
 
 module.exports = async (req, res) => {
-    if (!verifyRequest(req, httpVerbs.POST))
+    if (!verifyRequest({ req, httpVerbAllowed: httpVerbs.POST }))
         return res.status(403).send({ message: 'Unauthorized' });
 
     const { url } = req.body;

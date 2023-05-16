@@ -1,4 +1,4 @@
-module.exports = (req, httpVerbAllowed) => {
+module.exports = ({ req, httpVerbAllowed }) => {
     const { method, headers } = req;
     const { api_key, host } = headers;
 
