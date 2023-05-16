@@ -1,8 +1,10 @@
 const verifyRequest = require('../utils/req-verification');
+const httpVerbs = require('../enums/http-verbs');
 const { retrieveDataById } = require('../utils/db');
 
 module.exports = async (req, res) => {
-    if (!verifyRequest(req)) return res.status(403).send({ message: 'Unauthorized' });
+    if (!verifyRequest(req, httpVerbs.GET))
+        return res.status(403).send({ message: 'Unauthorized' });
 
     const id = req.query?.id;
 
