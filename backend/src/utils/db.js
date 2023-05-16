@@ -3,9 +3,7 @@ const crypto = require('crypto');
 
 const KEY = 'url';
 
-const datastore = new Datastore({
-    projectId: process.env.PROJECT_ID
-});
+const datastore = new Datastore();
 
 const retrieveDataById = async id => {
     const query = datastore.createQuery('url').filter('id', '=', id);
