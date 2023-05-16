@@ -1,10 +1,12 @@
 const to = require('await-to-js').default;
 const { writeData } = require('../utils/db');
 const isValidUrl = require('../utils/verify-url');
+const httpVerbs = require('../enums/http-verbs');
 const verifyRequest = require('../utils/req-verification');
 
 module.exports = async (req, res) => {
-    if (!verifyRequest(req)) return res.status(403).send({ message: 'Unauthorized' });
+    if (!verifyRequest(req, httpVerbs.POST))
+        return res.status(403).send({ message: 'Unauthorized' });
 
     const { url } = req.body;
 
