@@ -1,9 +1,8 @@
-module.exports = ({ req, httpVerbAllowed }) => {
+module.exports = ({ req, res, httpVerbAllowed }) => {
     const { method, headers } = req;
-    const { api_key, host } = headers;
+    const { api_key } = headers;
 
-    if (host !== process.env.DEV_DOMAIN && host !== process.env.PROD_DOMAIN) return false;
-    if (method != httpVerbAllowed) return false;
+    if (method != httpVerbAllowed) res.status(405).send({ message: 'Method not allowed' });
 
-    return api_key === process.env.API_KEY;
+    if (api_key !== process.env.API_KEY) res.status(403).send({ message: 'Unauthorized' });
 };
