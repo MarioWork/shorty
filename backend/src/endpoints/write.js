@@ -5,8 +5,7 @@ const httpVerbs = require('../enums/http-verbs');
 const verifyRequest = require('../utils/req-verification');
 
 module.exports = async (req, res) => {
-    if (!verifyRequest({ req, httpVerbAllowed: httpVerbs.POST }))
-        return res.status(403).send({ message: 'Unauthorized' });
+    verifyRequest({ req, res, httpVerbAllowed: httpVerbs.POST });
 
     const { url } = req.body;
 
@@ -15,7 +14,7 @@ module.exports = async (req, res) => {
     const [error, data] = await to(writeData({ url }));
 
     if (error) {
-        res.status(500).send();
+        res.status(500).send({ message: 'Something went wrong' });
         throw error;
     }
 

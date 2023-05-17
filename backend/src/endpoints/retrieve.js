@@ -3,8 +3,7 @@ const httpVerbs = require('../enums/http-verbs');
 const { retrieveDataById } = require('../utils/db');
 
 module.exports = async (req, res) => {
-    if (!verifyRequest({ req, httpVerbAllowed: httpVerbs.GET }))
-        return res.status(403).send({ message: 'Unauthorized' });
+    verifyRequest({ req, res, httpVerbAllowed: httpVerbs.GET });
 
     const id = req.query?.id;
 
