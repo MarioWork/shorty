@@ -37,4 +37,13 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 ####### DATASTORE ########
 gcloud firestore databases create --location=$LOCATION --type=datastore-mode
 
-gcloud functions deploy retrieve-data-first-function --trigger-http --runtime=nodejs18 --entry-point=retrieve --service-account=datastore-read-function@$PROJECT_ID.iam.gserviceaccount.com --region=$LOCATION --allow-unauthenticated --update-env-vars API_KEY=YOUR_API_KEY
+
+#Create Cloud Function for retrieving data from datastore
+gcloud functions deploy retrieve-data \
+    --trigger-http \
+    --runtime=nodejs18 \
+    --entry-point=retrieve \
+    --service-account=datastore-read-function@$PROJECT_ID.iam.gserviceaccount.com \
+    --region=$LOCATION \
+    --allow-unauthenticated \
+    --update-env-vars API_KEY=YOUR_API_KEY .
