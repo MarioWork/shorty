@@ -4,7 +4,7 @@ export async function useShortUrl() {
   const get = async (id) =>
     await useFetch(() => '/', {
       method: 'GET',
-      baseURL: config.public['API_BASE_URL'],
+      baseURL: config.public['RETRIEVE_API'],
       headers: { api_key: config['API_KEY'] },
       query: {
         id,
