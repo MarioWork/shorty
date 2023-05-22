@@ -11,7 +11,10 @@ export async function useShortUrl() {
       },
     });
 
+  const create = async (url) => {};
+
   return {
     get,
+    create,
   };
 }
