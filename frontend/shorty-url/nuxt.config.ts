@@ -2,7 +2,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     API_KEY: process.env.API_KEY,
     public: {
-      API_BASE_URL: process.env.API_BASE_URL,
+      RETRIEVE_API: process.env.RETRIEVE_API,
+      WRITE_API: process.env.WRITE_API,
     },
   },
   modules: ['@invictus.codes/nuxt-vuetify'],
