@@ -15,7 +15,9 @@ export async function useShortUrl() {
     await useFetch(() => '/', {
       method: 'POST',
       baseURL: config.public['WRITE_API'],
-      headers: { api_key: config['API_KEY'] },
+      headers: {
+        api_key: config['API_KEY'],
+      },
       body: {
         url,
       },
