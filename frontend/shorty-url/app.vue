@@ -1,6 +1,6 @@
 <template>
   {{ data }}
-  <v-btn @click.once="onClick">Add Data</v-btn>
+  <v-btn @click.prevent="onClick">Add Data</v-btn>
 </template>
 
 <script setup>
