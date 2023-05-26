@@ -7,7 +7,7 @@ module.exports = ({ req, res, httpVerbAllowed }) => {
 
     if (req.method === httpVerbs.OPTIONS) {
         res.set('Access-Control-Allow-Methods', httpVerbAllowed);
-        res.set('Access-Control-Allow-Headers', 'Content-Type, api_key');
+        res.set('Access-Control-Allow-Headers', 'Content-Type, api_key, origin');
         res.set('Access-Control-Max-Age', '3600');
         res.status(204).send();
         return;
