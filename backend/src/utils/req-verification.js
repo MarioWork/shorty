@@ -1,7 +1,7 @@
 const httpVerbs = require('../enums/http-verbs');
 
 module.exports = ({ req, res, httpVerbAllowed }) => {
-    res.set('Access-Control-Allow-Origin', '*');
+    if (process.env.ENV === 'DEV') res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
 
     if (req.method === httpVerbs.OPTIONS) {
         res.set('Access-Control-Allow-Methods', httpVerbAllowed);
