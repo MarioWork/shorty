@@ -18,5 +18,9 @@ module.exports = ({ req, res, httpVerbAllowed }) => {
 
     if (method != httpVerbAllowed) res.status(405).send({ message: 'HTTP Method not allowed' });
 
-    if (api_key !== process.env.API_KEY) res.status(403).send({ message: 'Unauthorized' });
+    if (
+        (method === httpVerbs.GET && api_key !== process.env.RETRIEVE_API_KEY) ||
+        (method === httpVerbs.POST && api_key !== process.env.CREATE_API_KEY)
+    )
+        res.status(403).send({ message: 'Unauthorized' });
 };
