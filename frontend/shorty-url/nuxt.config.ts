@@ -6,13 +6,4 @@ export default defineNuxtConfig({
       WRITE_API: process.env.WRITE_API,
     },
   },
-  modules: ['@invictus.codes/nuxt-vuetify'],
-  vuetify: {
-    moduleOptions: {
-      treeshaking: true,
-      useIconCDN: true,
-      styles: true,
-      autoImport: true,
-    },
-  },
 });
