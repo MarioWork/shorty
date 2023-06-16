@@ -6,4 +6,5 @@ export default defineNuxtConfig({
       WRITE_API: process.env.WRITE_API,
     },
   },
+  css: ['bootstrap/dist/css/bootstrap.min.css'],
 });
