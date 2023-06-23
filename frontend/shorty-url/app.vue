@@ -1,6 +1,5 @@
 <template>
   {{ data }}
-  <button class="btn btn-success" @click.prevent="onClick">Add Data</button>
 </template>
 
 <script setup>
