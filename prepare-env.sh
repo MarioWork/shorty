@@ -45,5 +45,5 @@ gcloud functions deploy retrieve-data \
     --entry-point=retrieve \
     --service-account=datastore-read-function@$PROJECT_ID.iam.gserviceaccount.com \
     --region=$LOCATION \
-    --allow-unauthenticated \
-    --update-env-vars API_KEY=YOUR_API_KEY .
+    --no-allow-unauthenticated \
+    --update-env-vars API_KEY=YOUR_API_KEY
