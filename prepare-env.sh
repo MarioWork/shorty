@@ -5,7 +5,7 @@ gcloud auth application-default login
 #gcloud config set project YOUR_PROJECT_ID
 
 #Set an env variable
-export PROJECT_ID=$(gcloud config list --format 'value(core.project)') #Curernt project id
+export PROJECT_ID=$(gcloud config list --format 'value(core.project)') #Current project id
 export LOCATION=YOUR_LOCATION
 
 ####### SERVICES ########
